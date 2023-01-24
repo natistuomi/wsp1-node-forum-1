@@ -1,21 +1,18 @@
 @use "reset";
 
-$dark: #333;
-$light: #efefef;
-
 @font-face {
     font-family: "Merriweather Sans";
     src: url("/fonts/MerriweatherSans-VariableFont_wght.ttf");
 }
 
 :root {
-    --color-foreground: #{$dark};
-    --color-background: #{$light};
+    --color-dark: #333;
+    --color-light: ghostwhite;
 }
 
 body {
-    color: var(--color-foreground);
-    background-color: var(--color-background);
+    color: var(--color-light);
+    background-color: var(--color-dark);
 
     font-family: "Merriweather Sans", sans-serif;
     font-size: larger;
@@ -41,12 +38,12 @@ li{
     padding: 1rem;
     margin: 2rem;
     display: flex;
-    background-color: #333;
-    color:ghostwhite;
+    background-color: var(--color-light);
+    color:var(--color-dark);
     .line{
         width: 1rem;
         margin: -1rem 1rem;
-        background-color: ghostwhite;
+        background-color: var(--color-dark);
     }
     .rightside{
         display: flex;

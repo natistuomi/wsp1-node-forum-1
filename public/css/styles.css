@@ -118,13 +118,13 @@ select {
   src: url("/fonts/MerriweatherSans-VariableFont_wght.ttf");
 }
 :root {
-  --color-foreground: #333;
-  --color-background: #efefef;
+  --color-dark: #333;
+  --color-light: ghostwhite;
 }
 
 body {
-  color: var(--color-foreground);
-  background-color: var(--color-background);
+  color: var(--color-light);
+  background-color: var(--color-dark);
   font-family: "Merriweather Sans", sans-serif;
   font-size: larger;
   line-height: 1.5;
@@ -147,13 +147,13 @@ li {
   padding: 1rem;
   margin: 2rem;
   display: flex;
-  background-color: #333;
-  color: ghostwhite;
+  background-color: var(--color-light);
+  color: var(--color-dark);
 }
 li .line {
   width: 1rem;
   margin: -1rem 1rem;
-  background-color: ghostwhite;
+  background-color: var(--color-dark);
 }
 li .rightside {
   display: flex;
