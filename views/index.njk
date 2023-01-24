@@ -3,7 +3,16 @@
   <ul>
     {% for row in rows %}
         <li>
-            {{ row | dump }}
+          <div class="leftside">
+            <b>Author:</b> {{ row.authorId }}<br>
+            <b>Time:</b> {{ row.createdAt  }}<br>
+            <b>Title:</b> {{ row.title }}<br>
+            <b>Message:</b> {{ row.content  }}<br>
+          </div>
+          <div class="line"></div>
+          <div class="rightside">
+            <h4>{{ row.id }}</h4>
+          </div>
         </li>
     {% endfor %}
   </ul>
