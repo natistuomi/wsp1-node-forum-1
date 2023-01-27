@@ -165,4 +165,14 @@ li .rightside h4 {
   padding: 0.5rem;
 }
 
+@media screen and (max-width: 800px) {
+  li {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  li .rightside {
+    padding-bottom: 1rem;
+  }
+}
+
 /*# sourceMappingURL=styles.css.map */

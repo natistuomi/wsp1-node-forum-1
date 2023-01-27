@@ -56,3 +56,12 @@ li{
     }
 }
 
+@media screen and (max-width: 800px){
+    li{
+        flex-direction: column-reverse;
+        align-items: center;
+        .rightside{
+            padding-bottom: 1rem;
+        }
+    }
+}
