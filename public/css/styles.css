@@ -151,6 +151,16 @@ body main {
   min-height: 100vh;
   padding-top: 1rem;
 }
+body footer {
+  background-color: var(--color-maroon);
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+body footer a {
+  color: var(--color-light);
+  text-decoration: none;
+}
 
 ul {
   list-style-type: none;

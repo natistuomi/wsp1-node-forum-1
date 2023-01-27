@@ -38,6 +38,16 @@ body {
         min-height: 100vh;
         padding-top: 1rem;
     }
+    footer{
+        background-color: var(--color-maroon);
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        a{
+            color: var(--color-light);
+            text-decoration: none;
+        }
+    }
 }
 
 ul{
