@@ -10,7 +10,7 @@ const pool = mysql.createPool({
 const promisePool = pool.promise();
 
 router.get('/', async function (req, res, next) {
-    const [rows] = await promisePool.query("SELECT * FROM ja15forum");
+    const [rows] = await promisePool.query("SELECT * FROM nt19forum");
     res.render('index.njk', {
         rows: rows,
         title: 'Forum',
@@ -19,7 +19,7 @@ router.get('/', async function (req, res, next) {
 
 router.post('/new', async function (req, res, next) {
     const { author, title, content } = req.body;
-    const [rows] = await promisePool.query("INSERT INTO DITT_TABELL_NAMN (author, title, content) VALUES (?, ?, ?)", [author, title, content]);
+    const [rows] = await promisePool.query("INSERT INTO nt19forum (author, title, content) VALUES (?, ?, ?)", [author, title, content]);
     res.redirect('/');
 });
 

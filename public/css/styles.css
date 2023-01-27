@@ -165,6 +165,14 @@ li .rightside h4 {
   padding: 0.5rem;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+form button, form label {
+  margin-top: 1rem;
+}
+
 @media screen and (max-width: 800px) {
   li {
     flex-direction: column-reverse;
