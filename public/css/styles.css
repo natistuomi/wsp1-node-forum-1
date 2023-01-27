@@ -120,6 +120,7 @@ select {
 :root {
   --color-dark: #333;
   --color-light: ghostwhite;
+  --color-maroon: maroon;
 }
 
 body {
@@ -178,6 +179,7 @@ ul {
   font-size: 3rem;
   margin: 0;
   padding: 0.5rem;
+  color: var(--color-maroon);
 }
 
 form {
@@ -189,7 +191,7 @@ form button, form label {
 }
 
 .navbar {
-  background-color: maroon;
+  background-color: var(--color-maroon);
   padding-left: 1rem;
 }
 .navbar__inner {
