@@ -51,6 +51,7 @@ ul{
     display: flex;
     background-color: var(--color-light);
     color:var(--color-dark);
+    border-radius: 25px;
     .line{
         width: 1rem;
         margin: -1rem 1rem;
@@ -128,8 +129,13 @@ form{
     .post{
         flex-direction: column-reverse;
         align-items: center;
-        .rightside{
-            padding-bottom: 1rem;
+        .leftside{
+            padding-top: .5rem;
+        }
+        .line{
+            height: 1rem;
+            width: 120%;
+            margin: 0;
         }
     }
 }

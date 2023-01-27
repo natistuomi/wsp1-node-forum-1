@@ -163,6 +163,7 @@ ul {
   display: flex;
   background-color: var(--color-light);
   color: var(--color-dark);
+  border-radius: 25px;
 }
 .post .line {
   width: 1rem;
@@ -240,8 +241,13 @@ form button, form label {
     flex-direction: column-reverse;
     align-items: center;
   }
-  .post .rightside {
-    padding-bottom: 1rem;
+  .post .leftside {
+    padding-top: 0.5rem;
+  }
+  .post .line {
+    height: 1rem;
+    width: 120%;
+    margin: 0;
   }
 }
 
