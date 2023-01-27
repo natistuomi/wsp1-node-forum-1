@@ -1,4 +1,13 @@
 <nav class="navbar">
-    <a href="/new" class="menu-item">Nytt inlägg</a>
-    <a href="/" class="menu-item">Forum</a>
+    <div class="navbar__inner container">
+        <button class="navbar__button" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M3 18v-2h18v2Zm0-5v-2h18v2Zm0-5V6h18v2Z"/></svg>
+        </button>
+        <div class="navbar__collapse">
+            <ul class="menu">
+                <li><a href="/">Forum</a></li>
+                <li><a href="/new">Nytt inlägg</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>

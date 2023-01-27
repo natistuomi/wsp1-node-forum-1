@@ -128,13 +128,27 @@ body {
   font-family: "Merriweather Sans", sans-serif;
   font-size: larger;
   line-height: 1.5;
+}
+body header {
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}
+body header h1 {
+  padding: 1rem;
+}
+body header a {
+  color: var(--color-light);
+  text-decoration: none;
+}
+body main {
+  width: min(80ch, 100vw - 2rem);
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  width: min(80ch, 100vw - 2rem);
   margin-inline: auto;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  min-height: 100vh;
+  padding-top: 1rem;
 }
 
 ul {
@@ -143,23 +157,23 @@ ul {
   margin: 0;
 }
 
-li {
+.post {
   padding: 1rem;
   margin: 2rem;
   display: flex;
   background-color: var(--color-light);
   color: var(--color-dark);
 }
-li .line {
+.post .line {
   width: 1rem;
   margin: -1rem 1rem;
   background-color: var(--color-dark);
 }
-li .rightside {
+.post .rightside {
   display: flex;
   align-items: center;
 }
-li .rightside h4 {
+.post .rightside h4 {
   font-size: 3rem;
   margin: 0;
   padding: 0.5rem;
@@ -174,21 +188,59 @@ form button, form label {
 }
 
 .navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: maroon;
+  padding-left: 1rem;
 }
-.navbar .menu-item {
-  color: var(--color-light);
-  font-style: italic;
+.navbar__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 4rem;
+}
+.navbar__button {
+  background-color: transparent;
+  margin: 1rem 1rem 1rem 0;
+}
+@media (min-width: 600px) {
+  .navbar__button {
+    display: none;
+  }
+}
+@media (max-width: 599px) {
+  .navbar__collapse {
+    display: none;
+    margin-bottom: 1rem;
+  }
+}
+.navbar__collapse > ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+.navbar__collapse--show {
+  display: block;
+  width: 100%;
+}
+.navbar__collapse--show > ul {
+  flex-direction: column;
+  padding: 0;
+}
+
+.show {
+  display: flex;
+}
+
+.hide {
+  display: none;
 }
 
 @media screen and (max-width: 800px) {
-  li {
+  .post {
     flex-direction: column-reverse;
     align-items: center;
   }
-  li .rightside {
+  .post .rightside {
     padding-bottom: 1rem;
   }
 }

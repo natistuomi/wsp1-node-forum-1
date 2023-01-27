@@ -8,9 +8,15 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>{{ title }}</h1>
-    {% include "navigation.njk" %}
-    {% block  content %}
-    {% endblock %}
+    <header>
+        <h1>nt19</h1>
+        {% include "navigation.njk" %}
+    </header>
+    <main>
+        <h1>{{ title }}</h1>
+        {% block  content %}
+        {% endblock %}
+    </main>
 </body>
+<script src="js/menu.js"></script>
 </html>

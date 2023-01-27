@@ -13,19 +13,30 @@
 body {
     color: var(--color-light);
     background-color: var(--color-dark);
-
     font-family: "Merriweather Sans", sans-serif;
     font-size: larger;
     line-height: 1.5;
-
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-
-    width: min(80ch, 100vw - 2rem);
-    margin-inline: auto;
-    justify-content: center;
-    align-items: center;
+    header{
+        color: var(--color-dark);
+        background-color: var(--color-light);
+        h1{
+            padding: 1rem;
+        }
+        a{
+            color: var(--color-light);
+            text-decoration: none;
+        }
+    }
+    main{
+        width: min(80ch, 100vw - 2rem);
+        display: flex;
+        flex-direction: column;
+        margin-inline: auto;
+        justify-content: flex-start;
+        align-items: center;
+        min-height: 100vh;
+        padding-top: 1rem;
+    }
 }
 
 ul{
@@ -34,7 +45,7 @@ ul{
     margin: 0;
 }
 
-li{
+.post{
     padding: 1rem;
     margin: 2rem;
     display: flex;
@@ -64,19 +75,57 @@ form{
     }
 }
 
-.navbar{
+.navbar {
+    background-color: maroon;
+    padding-left: 1rem;
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 4rem;
+
+    }
+    &__button {
+        background-color: transparent;
+        margin: 1rem 1rem 1rem 0;
+        @media (min-width: 600px) {
+            display: none;
+        }
+    }
+
+    &__collapse {
+        @media (max-width: 599px) {
+            display: none;
+            margin-bottom: 1rem;
+        }
+        > ul {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+        &--show {
+            display: block;
+            width: 100%;
+            > ul {
+                flex-direction: column;
+                padding: 0;
+            }
+        }
+    }
+}
+
+.show {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    .menu-item{
-        color: var(--color-light);
-        font-style: italic;
-    }    
+}
+
+.hide {
+    display: none;
 }
 
 
 @media screen and (max-width: 800px){
-    li{
+    .post{
         flex-direction: column-reverse;
         align-items: center;
         .rightside{
