@@ -173,6 +173,16 @@ form button, form label {
   margin-top: 1rem;
 }
 
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navbar .menu-item {
+  color: var(--color-light);
+  font-style: italic;
+}
+
 @media screen and (max-width: 800px) {
   li {
     flex-direction: column-reverse;
