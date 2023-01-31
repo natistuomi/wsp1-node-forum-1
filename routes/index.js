@@ -17,6 +17,22 @@ router.get('/', async function (req, res, next) {
     });
 });
 
+router.get('/new', async function (req, res, next) {
+    const [users] = await promisePool.query('SELECT * FROM nt19users');
+    res.render('new.njk', {
+        title: 'Nytt inlägg',
+        users,
+    });
+});
+
+router.get('/post/:id', async function (req, res, next){
+    const [comments] = await promisePool.query('SELECT * FROM nt19comments');
+    res.render('post.njk', {
+        title: 'Kommentarer',
+        comments,
+    });
+});
+
 router.post('/new', async function (req, res, next) {
     // Skapa en ny författare om den inte finns men du behöver kontrollera om användare finns!
 
@@ -34,18 +50,6 @@ router.post('/new', async function (req, res, next) {
     const [rows] = await promisePool.query('INSERT INTO nt19forum (authorId, title, content) VALUES (?, ?, ?)', [userId, title, content]);
 
     res.send(rows)
-});
-
-router.get('/new', async function (req, res, next) {
-    const [users] = await promisePool.query('SELECT * FROM nt19users');
-    res.render('new.njk', {
-        title: 'Nytt inlägg',
-        users,
-    });
-});
-
-router.get('/post/:id', async function (req, res, next){
-    
 });
 
 module.exports = router;
