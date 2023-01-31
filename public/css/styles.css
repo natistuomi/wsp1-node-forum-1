@@ -184,11 +184,13 @@ ul {
 .post .rightside {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 6rem;
 }
 .post .rightside h4 {
   font-size: 3rem;
   margin: 0;
-  padding: 0.5rem;
+  padding: 0;
   color: var(--color-maroon);
 }
 
