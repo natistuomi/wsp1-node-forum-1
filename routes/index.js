@@ -10,7 +10,7 @@ const pool = mysql.createPool({
 const promisePool = pool.promise();
 
 router.get('/', async function (req, res, next) {
-    const [rows] = await promisePool.query("SELECT * FROM nt19forum");
+    const [rows] = await promisePool.query("SELECT * FROM nt19forum ORDER BY id DESC");
     res.render('index.njk', {
         rows: rows,
         title: 'Forum',
