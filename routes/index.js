@@ -19,7 +19,10 @@ router.get('/', async function (req, res, next) {
 
 router.post('/new', async function (req, res, next) {
     // Skapa en ny författare om den inte finns men du behöver kontrollera om användare finns!
-    let [user] = await promisePool.query('SELECT * FROM nt19users WHERE id = ?', [authorId]);
+
+    const { author, title, content } = req.body;
+
+    let [user] = await promisePool.query('SELECT * FROM nt19users WHERE id = ?', [author]);
     if (!user) {
         user = await promisePool.query('INSERT INTO nt19users (name) VALUES (?)', [authorName]);
     }
@@ -29,12 +32,16 @@ router.post('/new', async function (req, res, next) {
 
     // kör frågan för att skapa ett nytt inlägg
     const [rows] = await promisePool.query('INSERT INTO nt19forum (authorId, title, content) VALUES (?, ?, ?)', [userId, title, content]);
+
+    res.send(rows)
 });
 
 router.get('/new', async function (req, res, next) {
+    const [users] = await promisePool.query('SELECT * FROM nt19users');
     res.render('new.njk', {
         title: 'Nytt inlägg',
+        users,
     });
-})
+});
 
 module.exports = router;
