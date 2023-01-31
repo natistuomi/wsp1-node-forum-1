@@ -44,4 +44,8 @@ router.get('/new', async function (req, res, next) {
     });
 });
 
+router.get('/post/:id', async function (req, res, next){
+    
+});
+
 module.exports = router;

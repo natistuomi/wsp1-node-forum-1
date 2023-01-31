@@ -150,6 +150,7 @@ body main {
   align-items: center;
   min-height: 100vh;
   padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 body footer {
   background-color: var(--color-maroon);
