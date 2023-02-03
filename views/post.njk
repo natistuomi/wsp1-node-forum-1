@@ -17,12 +17,14 @@
 
     <h1>Kommentarer</h1>
 
-    {% for row in comments %}
-        <ul class="commentflow">
-            <li class="comment">
-                <p><b>Användare:</b> {{ row.username }}</p>
-                <p>{{ row.content }}</p>
-            </li>
-        </ul>
-    {% endfor %}
+    
+    <ul class="commentflow">
+        {% for row in comments %}
+        <li class="comment">
+            <p><b>Användare:</b> {{ row.username }}</p>
+            <p>{{ row.content }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    
 {% endblock %}
