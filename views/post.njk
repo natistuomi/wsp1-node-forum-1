@@ -4,21 +4,21 @@
     <ul>
         <li class="post">
             <div class="leftside">
-                <b>Författar-ID:</b> {{ post[0][0].authorId }}<br>
-                <b>Tid:</b> {{ post[0][0].createdAt  }}<br>
-                <b>Titel:</b> {{ post[0][0].title }}<br>
-                <b>Meddelande:</b> {{ post[0][0].content  }}<br>
+                <b>Författar-ID:</b> {{ post.authorId }}<br>
+                <b>Tid:</b> {{ post.createdAt  }}<br>
+                <b>Titel:</b> {{ post.title }}<br>
+                <b>Meddelande:</b> {{ post.content  }}<br>
             </div>
             <div class="line"></div>
             <div class="rightside">
-                <h4>{{ post[0][0].id }}</h4>
+                <h4>{{ post.id }}</h4>
             </div>
         </li>
     </ul>
 
     <h1>Kommentarer</h1>
 
-    {% for row in comments[0] %}
+    {% for row in comments %}
         <ul class="commentflow">
             <li class="comment">
                 <p><b>Användare:</b> {{ row.authorId }}</p>
