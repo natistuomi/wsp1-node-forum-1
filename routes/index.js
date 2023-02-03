@@ -26,11 +26,10 @@ router.get('/new', async function (req, res, next) {
 });
 
 router.get('/post/:id', async function (req, res, next){
-    const [comments] = await promisePool.query('SELECT * FROM nt19comments');
-    res.render('post.njk', {
-        title: 'Kommentarer',
-        comments,
-    });
+    const postId = req.params.id;
+    const post = await promisePool.query('SELECT * FROM nt19forum WHERE id=' + postId); // skriv en funktion som hämtar en post på id eller stoppa in kod för detta här. Använd WHERE i din SQL.
+    const comments = await promisePool.query('SELECT * FROM nt19comments WHERE postId=' + postId); // Om du ska hämta comments kopplad till postens ID.
+    res.render('post.njk', { post, comments }); // rendera post.njk med post och comments som variabler.
 });
 
 router.post('/new', async function (req, res, next) {
@@ -39,9 +38,6 @@ router.post('/new', async function (req, res, next) {
     const { author, title, content } = req.body;
 
     let [user] = await promisePool.query('SELECT * FROM nt19users WHERE id = ?', [author]);
-    if (!user) {
-        user = await promisePool.query('INSERT INTO nt19users (name) VALUES (?)', [authorName]);
-    }
 
     // user.insertId bör innehålla det nya ID:t för författaren
     const userId = user.insertId || user[0].id;

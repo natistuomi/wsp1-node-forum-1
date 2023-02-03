@@ -2,6 +2,7 @@
 {% block  content %}
   <ul>
     {% for row in rows %}
+      <a href="/post/{{ row.id }}">
         <li class="post">
           <div class="leftside">
             <b>Författar-ID:</b> {{ row.authorId }}<br>
@@ -14,6 +15,7 @@
             <h4>{{ row.id }}</h4>
           </div>
         </li>
+      </a>
     {% endfor %}
   </ul>
 {% endblock %}
