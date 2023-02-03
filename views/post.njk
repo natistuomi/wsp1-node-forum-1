@@ -1,10 +1,9 @@
 {% extends "layout.njk" %}
 {% block  content %}
-    <h1>Inlägg</h1>
     <ul>
         <li class="post">
             <div class="leftside">
-                <b>Författar-ID:</b> {{ post.authorId }}<br>
+                <b>Författare:</b> {{ post.username }}<br>
                 <b>Tid:</b> {{ post.createdAt  }}<br>
                 <b>Titel:</b> {{ post.title }}<br>
                 <b>Meddelande:</b> {{ post.content  }}<br>
@@ -21,7 +20,7 @@
     {% for row in comments %}
         <ul class="commentflow">
             <li class="comment">
-                <p><b>Användare:</b> {{ row.authorId }}</p>
+                <p><b>Användare:</b> {{ row.username }}</p>
                 <p>{{ row.content }}</p>
             </li>
         </ul>

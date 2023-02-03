@@ -10,7 +10,7 @@ const pool = mysql.createPool({
 const promisePool = pool.promise();
 
 router.get('/', async function (req, res, next) {
-    const [rows] = await promisePool.query("SELECT * FROM nt19forum ORDER BY id DESC");
+    const [rows] = await promisePool.query("SELECT nt19forum.*, nt19users.name AS username FROM nt19forum JOIN nt19users on nt19forum.authorId = nt19users.id ORDER BY id DESC");
     res.render('index.njk', {
         rows: rows,
         title: 'Forum',
@@ -27,8 +27,8 @@ router.get('/new', async function (req, res, next) {
 
 router.get('/post/:id', async function (req, res, next){
     const postId = req.params.id;
-    const post = await promisePool.query('SELECT * FROM nt19forum WHERE id=' + postId); // skriv en funktion som hämtar en post på id eller stoppa in kod för detta här. Använd WHERE i din SQL.
-    const comments = await promisePool.query('SELECT * FROM nt19comments WHERE postId=' + postId); // Om du ska hämta comments kopplad till postens ID.
+    const post = await promisePool.query('SELECT nt19forum.*, nt19users.name AS username FROM nt19forum JOIN nt19users on nt19forum.authorId = nt19users.id WHERE nt19forum.id =' + postId); // skriv en funktion som hämtar en post på id eller stoppa in kod för detta här. Använd WHERE i din SQL.
+    const comments = await promisePool.query('SELECT nt19comments.*, nt19users.name AS username FROM nt19comments JOIN nt19users on nt19comments.authorId = nt19users.id WHERE nt19comments.postId =' + postId); // Om du ska hämta comments kopplad till postens ID.
     res.render('post.njk', { 
         post: post[0][0], 
         title: 'Inlägg',
